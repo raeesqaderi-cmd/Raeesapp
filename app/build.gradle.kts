@@ -1,7 +1,3 @@
-import java.io.File
-import java.io.FileInputStream
-import java.util.Properties
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -23,16 +19,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        // خواندن امن کلید با ایمپورت‌های اضافه شده بالا
-        val properties = Properties()
-        val localPropertiesFile = project.rootProject.file("local.properties")
-        if (localPropertiesFile.exists()) {
-            FileInputStream(localPropertiesFile).use { properties.load(it) }
-        }
-        val geminiKey = properties.getProperty("GEMINI_API_KEY") ?: ""
         
-        buildConfigField("String", "GEMINI_API_KEY", "\"$geminiKey\"")
+        // این گزینه به برنامه اجازه می‌دهد تا به صورت خودکار فایل BuildConfig را بسازد
+        buildFeatures {
+            buildConfig = true
+        }
     }
 
     buildTypes {
@@ -53,7 +44,6 @@ android {
     }
     buildFeatures {
         compose = true
-        buildConfig = true
     }
 }
 
