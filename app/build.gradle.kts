@@ -31,18 +31,21 @@ android {
         }
     }
     
+    // روش عمومی و بدون خطای تنظیم نسخه جاوا برای خروجی اندروید
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    
-    // کدهای جدید و جایگزین برای گریدل نسخه ۹
-    compilerOptions {
-        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
-    }
 
     buildFeatures {
         compose = true
+    }
+}
+
+// این بلوک مستقل در انتهای فایل، نسخه کامپایلر کاتلین را بدون وابستگی به لایه اندروید ست می‌کند
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions {
+        jvmTarget = "17"
     }
 }
 
