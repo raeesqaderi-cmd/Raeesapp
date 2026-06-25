@@ -19,15 +19,18 @@ android {
     targetSdk = 36
     versionCode = 1
     versionName = "1.0"
-buildConfigField("String", "GEMINI_API_KEY", java.util.Properties().apply {
-        val localPropertiesFile = project.rootProject.file("local.properties")
-        if (localPropertiesFile.exists()) {
-            localPropertiesFile.inputStream().use { load(it) }
+val geminiKey = try {
+        val prop = java.util.Properties()
+        val propFile = project.rootProject.file("local.properties")
+        if (propFile.exists()) {
+            propFile.inputStream().use { stream -> prop.load(stream) }
         }
-    }.getProperty("GEMINI_API_KEY") ?: "\"\"")
-    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-  }
+        prop.getProperty("GEMINI_API_KEY") ?: ""
+    } catch (_: Exception) {
+        ""
+    }
 
+    buildConfigField("String", "GEMINI_API_KEY", "\"$geminiKey\"")
   signingConfigs {
     create("release") {
       val keystorePath = System.getenv("KEYSTORE_PATH") ?: "${rootDir}/my-upload-key.jks"
