@@ -20,7 +20,6 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         
-        // این گزینه به برنامه اجازه می‌دهد تا به صورت خودکار فایل BuildConfig را بسازد
         buildFeatures {
             buildConfig = true
         }
@@ -57,7 +56,6 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     
-    // Navigation & Room & Lifecycle
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
