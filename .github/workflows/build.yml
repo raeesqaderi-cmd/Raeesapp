@@ -22,16 +22,18 @@ jobs:
 
     - name: Create local.properties
       run: |
-        echo "GEMINI_API_KEY=\"${{ secrets.GEMINI_API_KEY }}\"" > local.properties
+        echo "GEMINI_API_KEY=\"${{ secrets.GEMINI_API_KEY }}\"" > app/local.properties
 
     - name: Grant Execute Permission for Gradlew
       run: chmod +x gradlew
+      working-directory: app
 
     - name: Build Debug APK
       run: ./gradlew assembleDebug
+      working-directory: app
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
       with:
         name: RaeesTalk-Debug-APK
-        path: app/build/outputs/apk/debug/app-debug.apk
+        path: app/app/build/outputs/apk/debug/app-debug.apk
