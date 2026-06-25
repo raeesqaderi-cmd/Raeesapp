@@ -20,7 +20,7 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
-    - name: Build with Gradle (Auto Version)
+    - name: Build with Gradle
       uses: gradle/actions/setup-gradle@v3
       with:
         gradle-version: 9.3.1
@@ -30,7 +30,5 @@ jobs:
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: RaeesTalk-Debug-APK
-        path: "**/build/outputs/apk/debug/*.apk"      with:
         name: RaeesTalk-Debug-APK
         path: "**/build/outputs/apk/debug/*.apk"
