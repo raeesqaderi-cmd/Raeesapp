@@ -28,7 +28,7 @@ jobs:
     - name: Build with Gradle (Auto Version)
       uses: gradle/actions/setup-gradle@v3
       with:
-        gradle-version: 8.7 # تغییر به نسخه ۸.۷ برای حل باگ جاوا و کتابخانه امنیتی
+        gradle-version: 9.3.1 # ارتقا به نسخه درخواستی سیستم برای هماهنگی با پلاگین اندروید
         build-root-directory: app
         arguments: assembleDebug
 
