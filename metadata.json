@@ -1,0 +1,6 @@
+{
+  "name": "د رئیس ږغ RAEESTALK",
+  "description": "An advanced premium zero-defect multilingual AI Voice Assistant supporting Pashto, Dari, Farsi, English, Arabic, and Urdu with SMS notification reading and system intent integration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
