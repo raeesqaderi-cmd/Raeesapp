@@ -35,7 +35,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    // این بلوک را دوباره فعال کردیم تا ابزار ساخت فایل‌های داخلی اندروید بدون ارور کار کند
     buildFeatures {
         compose = true
         buildConfig = true 
@@ -57,6 +56,12 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    
+    // 🔥 اضافه شده: پکیج آیکون‌های متریال برای حل ارورهای دشبورد (مثل Mic و Alarm)
+    implementation("androidx.compose.material:material-icons-extended")
+
+    // 🔥 اضافه شده: ابزار شبکه OkHttp برای حل ارورهای کلاس جمینای
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
     
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.room.runtime)
