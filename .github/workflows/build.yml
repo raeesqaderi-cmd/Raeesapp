@@ -25,9 +25,11 @@ jobs:
         echo "GEMINI_API_KEY=\"${{ secrets.GEMINI_API_KEY }}\"" > local.properties
         echo "GEMINI_API_KEY=\"${{ secrets.GEMINI_API_KEY }}\"" > app/local.properties
 
-    - name: Build with Gradle
+    - name: Build with Gradle (Auto Version)
       uses: gradle/actions/setup-gradle@v3
       with:
+        gradle-version: 8.2 # گیت‌هاب به صورت خودکار گریدل را تأمین می‌کند
+        build-root-directory: app
         arguments: assembleDebug
 
     - name: Upload APK Artifact
