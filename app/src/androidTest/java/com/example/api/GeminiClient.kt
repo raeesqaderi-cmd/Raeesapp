@@ -21,7 +21,7 @@ object GeminiClient {
     )
 
     fun analyzeCommand(commandText: String): AnalysisResult {
-        val apiKey = BuildConfig.GEMINI_API_KEY
+val apiKey = "AIzaSyخیلی_طولانی_کلید_واقعی_شما"
         if (apiKey.isEmpty() || apiKey == "\"\"") {
             return AnalysisResult("NONE", "", "د رئیس صاحب، مهرباني وکړئ لومړی خپل API Key تنظیم کړئ. (کلید API تنظیم نشده است)", "ps")
         }
