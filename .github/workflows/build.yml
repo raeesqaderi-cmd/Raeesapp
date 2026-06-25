@@ -28,7 +28,7 @@ jobs:
     - name: Build with Gradle (Auto Version)
       uses: gradle/actions/setup-gradle@v3
       with:
-        gradle-version: 8.2 # گیت‌هاب به صورت خودکار گریدل را تأمین می‌کند
+        gradle-version: 8.7 # تغییر به نسخه ۸.۷ برای حل باگ جاوا و کتابخانه امنیتی
         build-root-directory: app
         arguments: assembleDebug
 
